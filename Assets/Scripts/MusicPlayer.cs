@@ -11,7 +11,7 @@ public class MusicPlayer : MonoBehaviour {
         if (instance != null)
         {
             Destroy(gameObject);
-            print("duplicate music destroyed");
+            //print("duplicate music destroyed");
         }
         else
         {

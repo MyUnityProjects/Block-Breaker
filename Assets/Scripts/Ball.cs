@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Ball : MonoBehaviour {
 
-    public Paddle paddle;
+    private Paddle paddle;
 
     private bool hasStarted = false;  //initialized to false because game hasent started
 
@@ -12,6 +12,8 @@ public class Ball : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        paddle = GameObject.FindObjectOfType<Paddle>();
+
         paddleToBallVector = this.transform.position - paddle.transform.position; // sets the location of the ball to be on paddle
 	}
 	
