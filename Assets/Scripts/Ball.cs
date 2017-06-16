@@ -28,9 +28,23 @@ public class Ball : MonoBehaviour {
         //wait for a mouse click to launch
         if (Input.GetMouseButtonDown(0)) //basiclly on click
         {
-            print("mouse clicked");
+            //print("mouse clicked");
             hasStarted = true; // on click means that the game has started
             this.GetComponent<Rigidbody2D>().velocity = new Vector2(2f, 10f); //new syntax for rigidbody give it an initial velocity with the vector 2 property
         }
 	}
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        AudioSource audio = GetComponent<AudioSource>();
+        Vector2 tweak = new Vector2(Random.Range(0f, 0.2f), Random.Range(0f, 0.2f));
+        if (hasStarted)
+        {
+            audio.Play();
+            GetComponent<Rigidbody2D>().velocity += tweak;
+            print("New Velocity: "+tweak);
+        }
+        // print("Collider");
+       
+    }
 }
